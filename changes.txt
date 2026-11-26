@@ -1,5 +1,18 @@
 Release Notes
 
+Version 4.0.0-beta (Build - 2026112600)
+Compatibility with Moodle 4.5 LTS and 5.3 LTS (PHP 8.1 to 8.4).
+Slack connection moved to OAuth v2 (oauth/v2/authorize and oauth.v2.access): Slack no longer allows new classic apps.
+The token test (auth.test) sends the token in the Authorization header.
+Messages are sent as JSON to the incoming webhook.
+The Slack connection check is cached per user (it was cached for the first user only).
+print_error() replaced with exceptions; properties declared (PHP 8.2+).
+Privacy API provider added.
+Client secret setting is now a password field.
+CI moved from Travis to GitHub Actions (moodle-plugin-ci 4).
+Users connected with a classic Slack app keep working; new connections need a Slack app with OAuth v2 and the
+incoming-webhook scope, and its redirect URL set to <wwwroot>/message/output/slack/slackconnect.php.
+
 Version 3.2.3 (Build - 2017071200)
 Moved from Beta to Stable.
 

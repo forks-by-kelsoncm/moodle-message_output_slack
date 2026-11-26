@@ -1,14 +1,22 @@
-[![Build Status](https://travis-ci.org/mchurchward/moodle-message_output_slack.png?branch=MOODLE_BETA_32)](https://travis-ci.org/mchurchward/moodle-message_output_slack)
+[![CI](https://github.com/forks-by-kelsoncm/moodle-message_output_slack/actions/workflows/ci.yml/badge.svg)](https://github.com/forks-by-kelsoncm/moodle-message_output_slack/actions/workflows/ci.yml)
+
+Fork of [PoetOS/moodle-message_output_slack](https://github.com/PoetOS/moodle-message_output_slack) updated for Moodle 4.5 LTS and 5.3 LTS.
 
 This plugin experiments with providing a Moodle message provider plugin for Slack.
 
 It requires a Slack App be set up in the team, using https://api.slack.com/apps. Once created, the basic information screen for that
 App will show the Client ID and the Client Secret required for the Moodle plugin configuration.
 
+In the App, under "OAuth & Permissions":
+- add the redirect URL `<wwwroot>/message/output/slack/slackconnect.php`;
+- add the `incoming-webhook` scope.
+
+The connection uses Slack OAuth v2 (https://api.slack.com/authentication/oauth-v2).
+
 This is setup so that "only one" Slack Team can be set up at the site level. Anyone wishing to have a Slack notification setup
 for their Moodle account must be a member of that team and use their account for that team.
 
-The user connection is done via the Slack button, which uses the OAuth 2.0 protocol in Slack (https://api.slack.com/docs/oauth).
+The user connection is done via the Slack button, which uses the OAuth 2.0 protocol in Slack (https://api.slack.com/authentication/oauth-v2).
 
 Full setup documentation for both users and admins is located here - https://docs.moodle.org/33/en/Slack_message_processor.
 

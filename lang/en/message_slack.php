@@ -25,11 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['addtoslack'] = 'Add to Slack';
 $string['clientid'] = 'Client ID';
 $string['clientsecret'] = 'Client secret';
 $string['configclientid'] = 'Client ID from your App Credentials (https://api.slack.com/apps).';
 $string['configclientsecret'] = 'Client Secret from your App Credentials (https://api.slack.com/apps).';
 $string['configteamurl'] = 'Slack team URL client data below is for, and users must be part of.';
+$string['connectioncancelled'] = 'The Slack connection was not completed.';
 $string['connectslackaccount'] = 'Connect your {$a} slack account ';
 $string['invalidoauthresponse'] = 'Invalid OAuth response.';
 $string['invalidslackuser'] = 'Incorrect Slack user id returned.';
@@ -38,5 +40,13 @@ $string['noclientid'] = 'No defined client_id';
 $string['noclientsecret'] = 'No defined client_secret';
 $string['notconfigured'] = 'The Slack server hasn\'t been configured so Slack messages cannot be sent';
 $string['pluginname'] = 'Slack';
+$string['privacy:metadata:preference:message_processor_slack_access_token'] = 'The Slack access token received when the user connected Slack.';
+$string['privacy:metadata:preference:message_processor_slack_channel'] = 'The Slack channel chosen by the user to receive notifications.';
+$string['privacy:metadata:preference:message_processor_slack_channel_id'] = 'The ID of the Slack channel chosen by the user.';
+$string['privacy:metadata:preference:message_processor_slack_configuration_url'] = 'The Slack URL to manage the connection of the user.';
+$string['privacy:metadata:preference:message_processor_slack_url'] = 'The Slack incoming webhook URL that receives the notifications of the user.';
+$string['privacy:metadata:preference:message_processor_slack_user_id'] = 'The Slack user ID of the user.';
+$string['privacy:metadata:slack'] = 'Notifications are sent to the Slack incoming webhook chosen by the user.';
+$string['privacy:metadata:slack:fullmessage'] = 'The text of the notification.';
 $string['slackusername'] = 'Your Slack username (@username)';
 $string['teamurl'] = 'Team URL';
