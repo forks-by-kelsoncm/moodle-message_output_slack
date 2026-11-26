@@ -24,19 +24,26 @@
  */
 
 require_once(__DIR__ . '/../../../config.php');
-require_once($CFG->dirroot.'/lib/filelib.php');
 
-$code = required_param('code', PARAM_TEXT);
+require_login();
+
 // State is used to confirm the operation is genuine. We expect the Moodle sesskey to be in this variable.
-$state = required_param('state', PARAM_TEXT);
+$state = required_param('state', PARAM_ALPHANUM);
+$code = optional_param('code', '', PARAM_TEXT);
+// Slack sends "error" instead of "code" when the user cancels the authorisation.
+$error = optional_param('error', '', PARAM_ALPHANUMEXT);
 
 $PAGE->set_url(new moodle_url('/message/output/slack/slackconnect.php'));
 $PAGE->set_context(context_system::instance());
 
-require_login();
 confirm_sesskey($state);
+
+$returnurl = new moodle_url('/message/notificationpreferences.php', ['userid' => $USER->id]);
+if ($error !== '' || $code === '') {
+    redirect($returnurl, get_string('connectioncancelled', 'message_slack'), null, \core\output\notification::NOTIFY_WARNING);
+}
 
 $slackmanager = new message_slack\manager();
 $slackmanager->issue_token($code, $state, $USER->id);
 
-redirect($CFG->wwwroot.'/message/notificationpreferences.php?userid='.$USER->id);
+redirect($returnurl);

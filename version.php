@@ -25,10 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2017040403;  // The current module version (Date: YYYYMMDDXX)
-$plugin->requires = 2016111500; // Moodle version.
-
 $plugin->component = 'message_slack';
-
-$plugin->release  = '3.2.3 (Build - 2017071200)';
-$plugin->maturity  = MATURITY_STABLE;
+$plugin->version   = 2026112600;
+$plugin->requires  = 2024100700; // Moodle 4.5.
+$plugin->supported = [405, 503];
+$plugin->release   = '4.0.0-beta';
+$plugin->maturity  = MATURITY_BETA;

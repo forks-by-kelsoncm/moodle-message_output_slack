@@ -26,10 +26,24 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    $settings->add(new admin_setting_configtext('message_slack/teamurl', get_string('teamurl', 'message_slack'),
-        get_string('configteamurl', 'message_slack'), '', PARAM_TEXT));
-    $settings->add(new admin_setting_configtext('message_slack/clientid', get_string('clientid', 'message_slack'),
-        get_string('configclientid', 'message_slack'), '', PARAM_TEXT));
-    $settings->add(new admin_setting_configtext('message_slack/clientsecret', get_string('clientsecret', 'message_slack'),
-        get_string('configclientsecret', 'message_slack'), '', PARAM_TEXT));
+    $settings->add(new admin_setting_configtext(
+        'message_slack/teamurl',
+        get_string('teamurl', 'message_slack'),
+        get_string('configteamurl', 'message_slack'),
+        '',
+        PARAM_TEXT
+    ));
+    $settings->add(new admin_setting_configtext(
+        'message_slack/clientid',
+        get_string('clientid', 'message_slack'),
+        get_string('configclientid', 'message_slack'),
+        '',
+        PARAM_TEXT
+    ));
+    $settings->add(new admin_setting_configpasswordunmask(
+        'message_slack/clientsecret',
+        get_string('clientsecret', 'message_slack'),
+        get_string('configclientsecret', 'message_slack'),
+        ''
+    ));
 }

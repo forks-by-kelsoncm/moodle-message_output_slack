@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot.'/message/output/lib.php');
+require_once($CFG->dirroot . '/message/output/lib.php');
 
 /**
  * The slack message processor
@@ -35,6 +35,8 @@ require_once($CFG->dirroot.'/message/output/lib.php');
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class message_output_slack extends message_output {
+    /** @var message_slack\manager The Slack helper manager. */
+    protected $slackmanager;
 
     /**
      * Constructor to add needed properties to the Slack app.
@@ -63,7 +65,6 @@ class message_output_slack extends message_output {
             return true;
         }
 
-        // $message = !empty($eventdata->fullmessagehtml) ? $eventdata->fullmessagehtml : $eventdata->fullmessage;
         // Safer to use the non-html message.
         $message = $eventdata->fullmessage;
 
